@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.active{
+  border-top: 2px solid rgba(217, 235, 135, 0.96);
+  border-bottom: 2px solid rgba(217, 235, 135, 0.96);
+  box-shadow: 0px 0px 0px 2px #b575ff;
+  background: #cb9eff;
+  color: whitesmoke;
+  font-weight: 600;
+  padding: 3px;
+  border-radius: 5px;
+
+  /* transition: all 0.3s; */
+}
+
+input{
+  color: white;
+}
