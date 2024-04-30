@@ -9,7 +9,7 @@ const CraftCards = () => {
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-center gap-6'>
             {
                 loader.map(data=>{
-                return ( <article key={data.key}>
+                return ( <article key={data.id}>
                      <div className="my-6 flex ">
                          <SingleCard allCrafts={data} />
                      </div>

@@ -2,7 +2,8 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import defaultImage from "../../public/dessert_dandroid.png"
 const CraftTable = ({allCrafts}) => {
-    // console.log(allCrafts)
+    console.log(allCrafts) 
+    
     const{image,itemName,subcategoryName,_id,description,price,rating,customization,processingTime,stockStatus,userEmail,userName} = allCrafts
 //  console.log(itemName)
     return (
@@ -51,7 +52,7 @@ const CraftTable = ({allCrafts}) => {
         </td>
         <td>{customization} </td>
         <th>
-            <Link to={`/details/${_id}`}> 
+            <Link to={`/details2/${_id}`}> 
           <button className="btn btn-ghost btn-xs">details</button>
             
             </Link>

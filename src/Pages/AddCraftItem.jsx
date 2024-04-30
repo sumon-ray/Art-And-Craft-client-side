@@ -1,11 +1,10 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { UserContext } from "../AuthProvider/AuthProvider";
-
+// import { useHistory } from "react-router-dom";
 const AddCraftItem = () => {
   const { user } = useContext(UserContext);
-console.log(user)
+  // const history = useHistory()
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -36,6 +35,12 @@ console.log(user)
       userName,
       email,
     };
+    // console.log(info)
+
+    // if(!user){
+    //   history('/login');
+    //   return
+    // }
 
     fetch("http://localhost:5000/addCrafts", {
       method: "POST",
@@ -59,10 +64,14 @@ console.log(user)
   return (
     <div className="container mx-auto px-4 lg:px-24 my-6">
       <div className="bg-zinc-200 p-8 rounded-lg shadow-lg">
-        <h2 className="text-2xl font-bold text-gray-800 mb-6">Add Craft Item</h2>
+        <h2 className="text-2xl font-bold text-gray-800 mb-6">
+          Add Craft Item
+        </h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label htmlFor="image" className="block text-gray-700">Image URL:</label>
+            <label htmlFor="image" className="block text-gray-700">
+              Image URL:
+            </label>
             <input
               type="text"
               id="image"
@@ -71,7 +80,9 @@ console.log(user)
             />
           </div>
           <div>
-            <label htmlFor="itemName" className="block text-gray-700">Item Name:</label>
+            <label htmlFor="itemName" className="block text-gray-700">
+              Item Name:
+            </label>
             <input
               type="text"
               id="itemName"
@@ -80,7 +91,9 @@ console.log(user)
             />
           </div>
           <div>
-            <label htmlFor="subcategoryName" className="block text-gray-700">Subcategory Name:</label>
+            <label htmlFor="subcategoryName" className="block text-gray-700">
+              Subcategory Name:
+            </label>
             <input
               type="text"
               id="subcategoryName"
@@ -89,7 +102,9 @@ console.log(user)
             />
           </div>
           <div>
-            <label htmlFor="description" className="block text-gray-700">Short Description:</label>
+            <label htmlFor="description" className="block text-gray-700">
+              Short Description:
+            </label>
             <textarea
               id="description"
               name="description"
@@ -98,7 +113,9 @@ console.log(user)
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label htmlFor="price" className="block text-gray-700">Price:</label>
+              <label htmlFor="price" className="block text-gray-700">
+                Price:
+              </label>
               <input
                 type="number"
                 id="price"
@@ -107,7 +124,9 @@ console.log(user)
               />
             </div>
             <div>
-              <label htmlFor="rating" className="block text-gray-700">Rating:</label>
+              <label htmlFor="rating" className="block text-gray-700">
+                Rating:
+              </label>
               <input
                 type="number"
                 id="rating"
@@ -121,7 +140,9 @@ console.log(user)
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label htmlFor="customization" className="block text-gray-700">Customization:</label>
+              <label htmlFor="customization" className="block text-gray-700">
+                Customization:
+              </label>
               <select
                 id="customization"
                 name="customization"
@@ -132,7 +153,9 @@ console.log(user)
               </select>
             </div>
             <div>
-              <label htmlFor="processingTime" className="block text-gray-700">Processing Time:</label>
+              <label htmlFor="processingTime" className="block text-gray-700">
+                Processing Time:
+              </label>
               <input
                 type="text"
                 id="processingTime"
@@ -143,7 +166,9 @@ console.log(user)
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label htmlFor="stockStatus" className="block text-gray-700">Stock Status:</label>
+              <label htmlFor="stockStatus" className="block text-gray-700">
+                Stock Status:
+              </label>
               <select
                 id="stockStatus"
                 name="stockStatus"
@@ -154,7 +179,9 @@ console.log(user)
               </select>
             </div>
             <div>
-              <label htmlFor="userEmail" className="block text-gray-700">User Email:</label>
+              <label htmlFor="userEmail" className="block text-gray-700">
+                User Email:
+              </label>
               <input
                 type="email"
                 id="userEmail"
@@ -164,7 +191,9 @@ console.log(user)
             </div>
           </div>
           <div>
-            <label htmlFor="userName" className="block text-gray-700">User Name:</label>
+            <label htmlFor="userName" className="block text-gray-700">
+              User Name:
+            </label>
             <input
               type="text"
               id="userName"

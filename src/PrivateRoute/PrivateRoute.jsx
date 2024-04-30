@@ -28,18 +28,3 @@ export default PrivateRoute;
 
 
 
-// a. image ( use image URL)
-//  b. item_name
-//  c. subcategory_Name
-//  d. short description
-//  e. price
-//  f. rating
-//  g. customization- example- yes, no
-//  h. processing_time
-// i.
-//  j.
-//  stockStatus- example- In stock, Made to Order
-//  User Email
-//  k. User Name
-//  l.
-//  “Add” bu on

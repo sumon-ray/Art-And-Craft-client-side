@@ -1,12 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+// import { JackInTheBox } from "react-awesome-reveal";
 
 const SingleCard = ({ allCrafts }) => {
-  const { image, item_name, subcategory_name, price } = allCrafts;
+  const { photo, item_name, subcategory_name, price } = allCrafts;
+    // JackInTheBox,heartBeat,Roll,JackInTheBox,Flip,Hinge,JackInTheBox
 
   return (
-    <Link to='/allArt' className="max-w-sm rounded overflow-hidden shadow-lg bg-white">
-      <img className="w-full" src={image} alt={item_name} />
+<div>
+<Link to='/allArt' className="max-w-sm rounded overflow-hidden shadow-lg bg-red-300">
+      <img className="w-full" src={photo} alt={item_name} />
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2">{item_name}</div>
         <p className="text-gray-700 text-base">{subcategory_name}</p>
@@ -20,6 +23,7 @@ const SingleCard = ({ allCrafts }) => {
         </Link>
       </div>
     </Link>
+</div>
   );
 };
 

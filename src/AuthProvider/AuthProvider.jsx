@@ -1,6 +1,7 @@
 import React, { createContext,useState,useEffect } from 'react';
 import { createUserWithEmailAndPassword,signInWithEmailAndPassword,signOut,onAuthStateChanged,updateProfile,signInWithPopup,GoogleAuthProvider,GithubAuthProvider } from "firebase/auth";
 // import { auth } from '../Firebase/firebase.config';
+// import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import auth from '../Firebase/firebase.config';
@@ -9,7 +10,6 @@ export const  UserContext=createContext(null)
 
  const AuthProvider = ({children}) => {
     const [user,setUser]=useState(null)
-    console.log(user) 
     const [loading,setLoading]=useState(true)
     // register user
     // ********************************************************************
@@ -28,7 +28,10 @@ export const  UserContext=createContext(null)
   // Google login
   const googleProvider = new GoogleAuthProvider();
   const loginWithGoogle = () => {
-    signInWithPopup(auth, googleProvider);
+    signInWithPopup(auth, googleProvider)
+    .then(()=>{
+toast.success('logged in successfully')
+    })
   };
 // Github Login
 
@@ -37,6 +40,9 @@ const GithubProvider = new GithubAuthProvider();
 GithubProvider.addScope('user:email');
 const loginWithGithub =()=>{
     signInWithPopup(auth,GithubProvider)
+    .then(()=>{
+        toast.success('logged in successfully')
+            })
 }
 // onAuth state
 // onAuth state
@@ -86,6 +92,7 @@ const LogOut=()=>{
         loginWithGithub,
         LogOut,
         user,
+        loading,
         setUser,
         updateUserProfile
 

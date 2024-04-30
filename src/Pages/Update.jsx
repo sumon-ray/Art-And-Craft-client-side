@@ -17,7 +17,6 @@ const AddCraftItem = () => {
     stockStatus,
     userEmail,
     userName,
-
   } = loader;
   const { user } = useContext(UserContext);
 
@@ -52,20 +51,19 @@ const AddCraftItem = () => {
       email,
       _id: loader._id, // Assuming you have an _id property in the loader object
     };
-console.log(info)
+    console.log(info);
     fetch(`http://localhost:5000/crafts/${loader._id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(info),
-      })
-      
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(info),
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data.modifiedCount>0) {
-            alert('done')
+        if (data.modifiedCount > 0) {
+          alert("done");
           Swal.fire({
             text: "Data added successfully!",
             icon: "success",
