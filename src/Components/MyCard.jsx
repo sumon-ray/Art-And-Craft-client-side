@@ -1,4 +1,5 @@
 import React from "react";
+import { Zoom } from "react-awesome-reveal";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -22,7 +23,7 @@ const MyCard = ({ myCardItems, setItems, allCrafts }) => {
         setItems(updatedItems);
 
         // Make the API call to delete the card
-        fetch(`http://localhost:5000/crafts/${_id}`, {
+        fetch(`https://backend-server-mu.vercel.app/crafts/${_id}`, {
           method: "DELETE",
         })
           .then((res) => {
@@ -55,25 +56,25 @@ const MyCard = ({ myCardItems, setItems, allCrafts }) => {
   };
 
   return (
-    <div>
-      <div className="max-w-xs rounded-md shadow-md dark:bg-gray-50 dark:text-gray-800">
+    <div className="rounded-md shadow-md dark:text-white text-gray-800 dark:bg-gray-700">
+      <Zoom>
         <img
           src={image}
           alt=""
-          className="object-cover object-center w-full rounded-t-md h-72 dark:bg-gray-500"
+          className="object-cover object-center w-full rounded-t-md h-72"
         />
-        <div className="flex flex-col justify-between p-6 space-y-8">
+        <div className="w-full flex flex-col justify-between p-6 space-y-8">
           <div className="space-y-2">
             <h2 className="text-3xl font-semibold tracking-wide">{itemName}</h2>
-            <p className="dark:text-gray-800">{price}</p>
-            <p className="dark:text-gray-800">{rating}</p>
-            <p className="dark:text-gray-800">{customization}</p>
-            <p className="dark:text-gray-800">{stockStatus}</p>
+            <p>${price}</p>
+            <p>{rating} ★</p>
+            <p>{customization}</p>
+            <p>{stockStatus}</p>
           </div>
           <div className="">
             <button
               onClick={handleDelete}
-              className="btn flex mx-auto text-white tracking-wider  text-[1rem] font-bold w-full mb-3 btn-success"
+              className="btn flex mx-auto text-white tracking-wider text-[1rem] font-bold w-full mb-3 btn-success"
             >
               Delete
             </button>
@@ -87,7 +88,7 @@ const MyCard = ({ myCardItems, setItems, allCrafts }) => {
             </Link>
           </div>
         </div>
-      </div>
+      </Zoom>
     </div>
   );
 };

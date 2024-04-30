@@ -14,7 +14,7 @@ import Registration from "../Pages/Registration";
 import Update from "../Pages/Update";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Root from "../Root/Root";
-
+// https://backend-server-mu.vercel.app/
 export const router = createBrowserRouter([
   {
     path: "/*",
@@ -27,13 +27,13 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: () => fetch("http://localhost:5000/craftCard"),
+        loader: () => fetch("https://backend-server-mu.vercel.app/craftCard"),
       },
       {
         path: "/details/:id",
         element: <HomeCardDetails />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/craftCard/${params.id}`),
+          fetch(`https://backend-server-mu.vercel.app/craftCard/${params.id}`),
       },
       {
         path: "/craftCard",
@@ -42,7 +42,7 @@ export const router = createBrowserRouter([
       {
         path: "/allArt",
         element: <CraftItems />,
-        loader: () => fetch("http://localhost:5000/crafts"),
+        loader: () => fetch("https://backend-server-mu.vercel.app/crafts"),
       },
       {
         path: "/addCraftItem",
@@ -65,7 +65,7 @@ export const router = createBrowserRouter([
         path: "/update/:id",
         element: <Update />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/update/${params.id}`),
+          fetch(`https://backend-server-mu.vercel.app/update/${params.id}`),
       },
       // ***********************
       {
@@ -79,13 +79,15 @@ export const router = createBrowserRouter([
       {
         path: "/details2/:id",
         element: <CardTableDetails />,
-        loader: () => fetch("http://localhost:5000/crafts"),
+        loader: () => fetch("https://backend-server-mu.vercel.app/crafts"),
       },
       {
         path: "/allCard/:id",
         element: <AllCard />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/craftsByCategory/${params.id}`),
+          fetch(
+            `https://backend-server-mu.vercel.app/craftsByCategory/${params.id}`
+          ),
       },
     ],
   },

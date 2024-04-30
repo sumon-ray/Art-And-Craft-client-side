@@ -6,7 +6,7 @@ const AllCard = () => {
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/craftsByCategory/${id}`)
+    fetch(`https://backend-server-mu.vercel.app/craftsByCategory/${id}`)
       .then((response) => response.json())
       .then((data) => setCards(data))
       .catch((error) =>
@@ -16,46 +16,38 @@ const AllCard = () => {
 
   return (
     <div className="container mx-auto px-4 lg:px-24 py-6">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {cards.map((card) => (
           <div
             key={card._id}
-            className="bg-white dark:bg-gray-900 shadow-lg rounded-lg overflow-hidden"
+            className="relative bg-white dark:bg-gray-900 shadow-lg rounded-lg overflow-hidden"
           >
             <img
               src={card?.image}
               alt={card.itemName}
               className="w-full h-64 object-cover object-center"
             />
-            <div className="p-6">
-              <h2 className="text-gray-800 dark:text-white text-xl font-semibold mb-2">
-                {card.itemName}
-              </h2>
-              <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
-                {card.subcategoryName}
-              </p>
-              <p className="text-gray-700 dark:text-gray-300 mb-2">
-                {card.short_description}
-              </p>
-              <div className="flex items-center justify-between">
-                <p className="text-gray-700 dark:text-gray-300 font-semibold">
-                  ${card.price}
-                </p>
-                <p className="text-gray-700 dark:text-gray-300">
-                  {card.rating}{" "}
-                  <span className="text-gray-500 dark:text-gray-400">★</span>
-                </p>
+            <div className="absolute inset-0 bg-black opacity-0 hover:opacity-60 transition-opacity duration-300">
+              <div className="flex flex-col justify-center items-center h-full text-white">
+                <h2 className="text-xl font-semibold mb-2">{card.itemName}</h2>
+                <p className="text-sm mb-4">{card.subcategoryName}</p>
+                <div className="flex justify-between w-3/4">
+                  <div>
+                    <p className="text-lg font-bold">${card.price}</p>
+                    <p className="text-sm">{card.rating} ★</p>
+                  </div>
+                  <p className="text-sm">
+                    Processing Time: {card.processingTime} days
+                  </p>
+                </div>
               </div>
-              <p className="text-gray-700 dark:text-gray-300 mt-2">
-                Processing Time: {card.processingTime} days
-              </p>
-              <Link
-                to={`/details2/${card._id}`}
-                className="block mt-4 text-center bg-primary-600 dark:bg-primary-700 text-white py-2 px-4 rounded-lg hover:bg-primary-700 dark:hover:bg-primary-800 transition duration-300"
-              >
-                View Details
-              </Link>
             </div>
+            <Link
+              to={`/details2/${card._id}`}
+              className="absolute inset-0 flex justify-center items-center bg-transparent hover:bg-primary-600 dark:hover:bg-primary-700 transition duration-300"
+            >
+              <span className="text-white font-semibold">View Details</span>
+            </Link>
           </div>
         ))}
       </div>

@@ -6,7 +6,7 @@ const ArtAndCraftCategories = () => {
   console.log(loader);
   //   const [subcategories, setSubcategories] = useState([]);
   //   useEffect(() => {
-  //     fetch('http://localhost:5000/subcategories')
+  //     fetch('https://backend-server-mu.vercel.app/crafts/subcategories')
   //       .then(response => response.json())
   //       .then(data => setSubcategories(data))
   //       .catch(error => console.error('Error fetching subcategories:', error));

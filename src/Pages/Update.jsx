@@ -20,7 +20,7 @@ const AddCraftItem = () => {
   } = loader;
   const { user } = useContext(UserContext);
 
-  const handleSubmit = (e) => {
+  const handleUpdate = (e) => {
     e.preventDefault();
 
     const form = e.target;
@@ -51,8 +51,8 @@ const AddCraftItem = () => {
       email,
       _id: loader._id, // Assuming you have an _id property in the loader object
     };
-    console.log(info);
-    fetch(`http://localhost:5000/crafts/${loader._id}`, {
+    // console.log(info);
+    fetch(`https://backend-server-mu.vercel.app/crafts/${loader._id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -78,7 +78,7 @@ const AddCraftItem = () => {
         <h2 className="text-2xl font-bold text-gray-800 mb-6">
           Add Craft Item
         </h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleUpdate} className="space-y-4">
           <div>
             <label htmlFor="image" className="block text-gray-700">
               Image URL:

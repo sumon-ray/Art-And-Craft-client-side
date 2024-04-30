@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import Swal from "sweetalert2";
 import { UserContext } from "../AuthProvider/AuthProvider";
-// import { useHistory } from "react-router-dom";
+
 const AddCraftItem = () => {
   const { user } = useContext(UserContext);
-  // const history = useHistory()
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -35,14 +35,8 @@ const AddCraftItem = () => {
       userName,
       email,
     };
-    // console.log(info)
 
-    // if(!user){
-    //   history('/login');
-    //   return
-    // }
-
-    fetch("http://localhost:5000/addCrafts", {
+    fetch("https://backend-server-mu.vercel.app/addCrafts", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -51,7 +45,6 @@ const AddCraftItem = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.insertedId) {
           Swal.fire({
             text: "Data added successfully!",
@@ -63,33 +56,10 @@ const AddCraftItem = () => {
 
   return (
     <div className="container mx-auto px-4 lg:px-24 my-6">
-      <div className="bg-zinc-200 p-8 rounded-lg shadow-lg">
-        <h2 className="text-2xl font-bold text-gray-800 mb-6">
-          Add Craft Item
-        </h2>
+      <div className="bg-gray-200 p-8 rounded-lg shadow-lg dark:bg-gray-700">
+        <h2 className="text-2xl font-bold text-white mb-6">Add Craft Item</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label htmlFor="image" className="block text-gray-700">
-              Image URL:
-            </label>
-            <input
-              type="text"
-              id="image"
-              name="image"
-              className="mt-1 p-2 w-full  input text-black border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-500"
-            />
-          </div>
-          <div>
-            <label htmlFor="itemName" className="block text-gray-700">
-              Item Name:
-            </label>
-            <input
-              type="text"
-              id="itemName"
-              name="itemName"
-              className="mt-1 p-2 w-full input text-black border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-500"
-            />
-          </div>
+          {/* Additional form fields */}
           <div>
             <label htmlFor="subcategoryName" className="block text-gray-700">
               Subcategory Name:
@@ -110,33 +80,6 @@ const AddCraftItem = () => {
               name="description"
               className="mt-1 p-2 w-full input text-black border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-500"
             ></textarea>
-          </div>
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <label htmlFor="price" className="block text-gray-700">
-                Price:
-              </label>
-              <input
-                type="number"
-                id="price"
-                name="price"
-                className="mt-1 input text-black p-2 w-full border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-500"
-              />
-            </div>
-            <div>
-              <label htmlFor="rating" className="block text-gray-700">
-                Rating:
-              </label>
-              <input
-                type="number"
-                id="rating"
-                name="rating"
-                step="0.1"
-                min="0"
-                max="5"
-                className="mt-1 input text-black p-2 w-full border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-500"
-              />
-            </div>
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div>
@@ -183,9 +126,11 @@ const AddCraftItem = () => {
                 User Email:
               </label>
               <input
+                readOnly
                 type="email"
                 id="userEmail"
                 name="userEmail"
+                value={user.email}
                 className="mt-1 input text-black p-2 w-full border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-500"
               />
             </div>
@@ -201,6 +146,7 @@ const AddCraftItem = () => {
               className="mt-1 p-2 input text-black w-full border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-500"
             />
           </div>
+          {/* End of additional form fields */}
           <div>
             <button
               type="submit"

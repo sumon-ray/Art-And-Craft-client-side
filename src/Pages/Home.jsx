@@ -1,5 +1,7 @@
 import Banner from "../Components/Banner";
 import CraftCards from "../Components/CraftCards";
+import GiftCard from "../Components/GiftCard";
+import LearnArtCraft from "../Components/LearnArtCraft";
 import SubCategory from "../Components/SubCategory";
 
 const Home = () => {
@@ -9,6 +11,8 @@ const Home = () => {
       <Banner />
       <CraftCards />
       <SubCategory />
+      <GiftCard />
+      <LearnArtCraft />
       {/* <ArtAndCraftCategories /> */}
       {/* <CraftItems /> */}
       {/* <div className="">

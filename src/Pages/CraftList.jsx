@@ -8,7 +8,7 @@ const CraftList = () => {
   useEffect(() => {
     // Check if user exists and has an email before fetching data
     if (user && user.email) {
-      fetch(`http://localhost:5000/myCrafts/${user.email}`)
+      fetch(`https://backend-server-mu.vercel.app/myCrafts/${user.email}`)
         .then((res) => res.json())
         .then((data) => {
           // console.log(data) // Check the received data in the console
@@ -25,9 +25,9 @@ const CraftList = () => {
       setItems([]);
     };
   }, [user]);
-
+  // https://backend-server-mu.vercel.app/crafts
   return (
-    <section className="my-6 container mx-auto px-4 lg:px-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    <section className="my-6 w-full container mx-auto px-4 lg:px-24 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
       {items.map((item) => (
         <MyCard
           key={item._id}
