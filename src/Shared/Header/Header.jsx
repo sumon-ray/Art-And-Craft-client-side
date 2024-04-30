@@ -79,7 +79,7 @@ const Header = () => {
               {navbar}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl"> Craft </a>
+          <a className="btn btn-ghost text-xl"> CraftStore </a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="  px-1"> {navbar} </ul>
