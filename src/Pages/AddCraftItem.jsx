@@ -64,6 +64,7 @@ const AddCraftItem = () => {
             <label htmlFor="subcategoryName" className="block text-gray-700">
               Subcategory Name:
             </label>
+            
             <input
               type="text"
               id="subcategoryName"
