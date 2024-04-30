@@ -2,7 +2,7 @@
 
 // CraftStore is an online platform dedicated to artists and craft enthusiasts, offering a wide range of resources, tools, and inspiration for painting and drawing.
 
-// 🎨 Live Site: CraftStore
+// 🎨 Live Site: https://craft-firebase.web.app/
 
 // ********Features *****
 
